@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Predict</title>
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+  <h2>Upload Brain MRI Image</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required><br><br>
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if label %}
+    <h3>Prediction: {{ label }}</h3>
+    <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image" width="200">
+
+
+  {% endif %}
+
+  <p><a href="/index">Back to Home</a></p>
+</body>
+</html>
